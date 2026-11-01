@@ -15,5 +15,8 @@ jobs:
       - name: Build Docker image
         run: docker build -t ci-demo .
 
+      - name: Run flake8 linting
+        run: docker run --rm ci-demo flake8 app tests
+
       - name: Run tests in container
         run: docker run --rm ci-demo
